@@ -1,0 +1,46 @@
+<app-title title="Control Flow" />
+<div class="flex flex-row">
+
+  <div class="m-4 p-4 drop-shadow-m rounded-lg bg-white transition-colors basis-1/4 space-x-1">
+    <p class="text-gray-900 font-semibold text-lg mb-2">IF: {{isTrue()}}</p>
+    @if (isTrue()) {
+    <p class="font-thin text-gray-600">The red fox (Vulpes vulpes) is the largest of the true foxes and one of the most widely distributed members of the order Carnivora, being present across the entire Northern Hemisphere including most of North America, Europe and Asia, plus parts of North Africa.</p>
+    } @else {
+    <p class="font-thin text-gray-600">S/6,500.00</p>
+    }
+
+    <button class="bg-blue-600 hover:bg-blue-700 hover:transition-colors py-1 px-3 rounded-lg mt-5 text-white" (click)="toggle()">Show {{textShow()}}</button>
+  </div>
+
+  <div class="m-4 p-4 drop-shadow-m rounded-lg bg-white transition-colors basis-1/4 space-x-1">
+    <p class="text-gray-900 font-semibold text-lg mb-2">Nota:</p>
+    @switch (nota()) {
+    @case ('A') {
+    <p class="font-thin text-gray-600">Aprobado</p>
+    }
+    @case ('B') {
+    <p class="font-thin text-gray-600">Recuperación</p>
+    }
+    @case ('C') {
+    <p class="font-thin text-gray-600">Desaprobado</p>
+    }
+    }
+
+    <button class="bg-blue-600 hover:bg-blue-700 hover:transition-colors py-1 px-3 rounded-lg mt-5 text-white" (click)="randomNota()">Show nota</button>
+  </div>
+  <div class="m-4 p-4 drop-shadow-m rounded-lg bg-white transition-colors basis-1/4 space-x-1">
+    <p class="text-gray-900 font-semibold text-lg mb-2">Frameworks:</p>
+    <ul class="text-gray-600">
+      @for (item of frameworks(); track frameworks(); let first = $first, last = $last) {
+      <li [ngClass]="{
+        'bg-blue-300': first,
+        'bg-violet-300': last
+        }">{{$index+1}} - {{item}}</li>
+      }@empty {
+      <li>No hay frameworks</li>
+
+      }
+    </ul>
+    <button class="bg-blue-600 hover:bg-blue-700 hover:transition-colors py-1 px-3 rounded-lg mt-5 text-white" (click)="removeAllFrameworks()">Clear framework</button>
+  </div>
+</div>

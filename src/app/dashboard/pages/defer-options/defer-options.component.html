@@ -1,0 +1,67 @@
+<app-title title="Defer interaction" />
+
+<div class="flex flex-row">
+  @defer (on interaction) {
+
+  <div class="m-4 p-4 drop-shadow rounded-lg bg-white transition-colors basis-1/4 space-x-1">
+    <heavy-loaders-fast>
+      <p>Show text click!.</p>
+    </heavy-loaders-fast>
+  </div>
+  }@placeholder {
+  <div class="text-gray-600 m-4 p-4 drop-shadow rounded-lg bg-white transition-colors basis-1/4 space-x-1">
+    Click me
+  </div>
+  }
+  @defer (on interaction(btnShowText)) {
+
+  <div class="m-4 p-4 drop-shadow rounded-lg bg-white transition-colors basis-1/4 space-x-1">
+    <heavy-loaders-fast>
+      <p>Show immediate text click button.</p>
+    </heavy-loaders-fast>
+  </div>
+  }@placeholder {
+  <div class="m-4 p-4 drop-shadow rounded-lg bg-white transition-colors basis-1/4 space-x-1">
+    <button class="bg-green-600 p-4 rounded text-gray-100" #btnShowText>Show text</button>
+  </div>
+  }
+
+  @defer (on hover) {
+
+  <div class="m-4 p-4 drop-shadow rounded-lg bg-white transition-colors basis-1/4 space-x-1">
+    <heavy-loaders-fast>
+      <p>Show immediate text hover</p>
+    </heavy-loaders-fast>
+  </div>
+  }@placeholder {
+  <div class="text-gray-600 m-4 p-4 drop-shadow rounded-lg bg-white transition-colors basis-1/4 space-x-1">
+    Hover me!
+  </div>
+  }
+
+  @defer (on immediate) {
+
+  <div class="m-4 p-4 drop-shadow rounded-lg bg-white transition-colors basis-1/4 space-x-1">
+    <heavy-loaders-fast>
+      <p>Show immediate text</p>
+    </heavy-loaders-fast>
+  </div>
+  }@placeholder {
+  <div class="text-gray-600 m-4 p-4 drop-shadow rounded-lg bg-white transition-colors basis-1/4 space-x-1">
+    Show immediate
+  </div>
+  }
+
+  @defer (on timer(2000)) {
+
+  <div class="m-4 p-4 drop-shadow rounded-lg bg-white transition-colors basis-1/4 space-x-1">
+    <heavy-loaders-fast>
+      <p>Show text in 2s</p>
+    </heavy-loaders-fast>
+  </div>
+  }@placeholder {
+  <div class="text-gray-600 m-4 p-4 drop-shadow rounded-lg bg-white transition-colors basis-1/4 space-x-1">
+    Show in 2sg
+  </div>
+  }
+</div>
